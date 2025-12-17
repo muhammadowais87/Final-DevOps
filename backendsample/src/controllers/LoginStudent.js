@@ -1,6 +1,6 @@
 const Student = require("../models/RegisterStudentSchema");
 const TeamMember = require("../models/TeamMember");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.loginStudent = async (req, res) => {

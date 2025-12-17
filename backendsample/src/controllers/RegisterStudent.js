@@ -1,5 +1,5 @@
 const Student = require("../models/RegisterStudentSchema");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 exports.registerCompany = async (req, res) => {
   try {

@@ -1,5 +1,5 @@
 const Admin = require("../models/AdminSchema");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.loginAdmin = async (req, res) => {

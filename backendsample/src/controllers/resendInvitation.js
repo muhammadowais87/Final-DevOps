@@ -1,5 +1,5 @@
 const TeamMember = require('../models/TeamMember');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const generateRandomPassword = () => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let password = '';

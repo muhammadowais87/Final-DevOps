@@ -29,7 +29,7 @@ const { getDisciplines } = require("./controllers/getDisciplines");
 
 // Import company authentication controllers
 const { googleRegisterCompany } = require("./controllers/googleRegisterCompany");
-const { googleLoginCompany } = require("./controllers/GoogleLoginCompany");
+const { googleLoginCompany } = require("./controllers/googleLoginCompany");
 const { registerCompany } = require("./controllers/RegisterStudent");
 const { loginStudent } = require("./controllers/LoginStudent");
 
@@ -43,7 +43,7 @@ const {
   forgotPassword,
   resetPassword,
   verifyResetToken
-} = require("./controllers/forgotpasswordController");
+} = require("./controllers/forgotPasswordController");
 
 // Import contact page controllers
 const {

@@ -1,5 +1,5 @@
 const Admin = require("../models/AdminSchema");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 exports.registerAdmin = async (req, res) => {
   try {

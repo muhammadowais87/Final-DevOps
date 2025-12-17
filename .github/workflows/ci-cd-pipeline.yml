@@ -172,14 +172,11 @@ jobs:
 
   # ==================== STAGE 4: DEPLOY TO KUBERNETES ====================
   deploy-to-kubernetes:
-    name: Deploy to Kubernetes (AKS)
+    name: Deploy to Kubernetes (AKS) - Optional
     runs-on: ubuntu-latest
     needs: docker-build-push
-    if: |
-      github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' && 
-      secrets.AZURE_CREDENTIALS != '' && 
-      secrets.AZURE_RESOURCE_GROUP != '' && 
-      secrets.AZURE_AKS_CLUSTER_NAME != ''
+    continue-on-error: true
+    if: false  # Disabled for Section B - Enable in Section C
     
     steps:
       - name: Checkout Code
@@ -187,26 +184,31 @@ jobs:
       
       - name: Azure Login
         uses: azure/login@v1
+        continue-on-error: true
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
       - name: Set AKS Context
         uses: azure/aks-set-context@v3
+        continue-on-error: true
         with:
           resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
           cluster-name: ${{ secrets.AZURE_AKS_CLUSTER_NAME }}
       
       - name: Create Kubernetes Namespace (if not exists)
+        continue-on-error: true
         run: |
           kubectl create namespace devops-app --dry-run=client -o yaml | kubectl apply -f -
       
       - name: Deploy to AKS
+        continue-on-error: true
         run: |
           kubectl apply -f kubernetes/ -n devops-app
           kubectl rollout status deployment/backend-deployment -n devops-app
           kubectl rollout status deployment/frontend-deployment -n devops-app
       
       - name: Get Service URLs
+        continue-on-error: true
         run: |
           echo "=== Deployment Status ==="
           kubectl get pods -n devops-app

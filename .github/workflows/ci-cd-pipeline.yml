@@ -9,8 +9,8 @@ on:
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/devops-backend
-  FRONTEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/devops-frontend
+  BACKEND_IMAGE: muhammadowais11/sampletest-backend
+  FRONTEND_IMAGE: muhammadowais11/sampletest-frontend
 
 jobs:
   # ==================== STAGE 1: BUILD & TEST BACKEND ====================

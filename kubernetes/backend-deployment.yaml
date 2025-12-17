@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: muhammadowais87/devops-backend:latest
+        image: muhammadowais11/sampletest-backend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
